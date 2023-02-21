@@ -1,0 +1,39 @@
+<div class="char" *ngIf="hero !== null; else skeletonBlock">
+  <div class="char__basics" >
+    <img [src]='hero.thumbnail' [alt]='hero.name'/>
+    <div>
+      <div class="char__info-name">{{hero.name}}</div>
+      <div class="char__btns">
+        <a [href]='hero.homepage' class="button button__main">
+          <div class="inner">homepage</div>
+        </a>
+        <a [href]='hero.wiki' class="button button__secondary">
+          <div class="inner">Wiki</div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="char__descr">
+    {{hero!.description || 'This hero has no description'}}
+  </div>
+  <div class="char__comics">Comics:</div>
+  <ul class="char__comics-list">
+    <li class="char__comics-item" *ngFor="let comic of hero!.comics">
+      {{comic.name}}
+    </li>
+  </ul>
+</div>
+
+<ng-template #skeletonBlock>
+
+  <p className="char__select">Please select a character to see information</p>
+  <div className="skeleton">
+    <div className="pulse skeleton__header">
+      <div className="pulse skeleton__circle"></div>
+      <div className="pulse skeleton__mini"></div>
+    </div>
+    <div className="pulse skeleton__block"></div>
+    <div className="pulse skeleton__block"></div>
+    <div className="pulse skeleton__block"></div>
+  </div>
+</ng-template>

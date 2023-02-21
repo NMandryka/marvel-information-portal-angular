@@ -1,0 +1,17 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    &:hover {
+      cursor: pointer;
+    }
+    span {
+      color: red;
+    }
+  }
+
+  .links {
+    display: flex;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,16 @@
+<div class="comics__list">
+  <ul class="comics__grid">
+    <li *ngFor="let comic of comics" class="comics__item"
+      (click)="comicInformation(comic.id)">
+      <img [src]='comic.thumbnail' [alt]='comic.title' class="comics__item-img"/>
+      <div class="comics__item-name">{{comic.title}}</div>
+      <div class="comics__item-price">{{comic.price}}</div>
+    </li>
+  </ul>
+  <button
+    class="button button__main button__long"
+    (click)="loadMoreComics()">
+    <div class="inner">load more</div>
+  </button>
+</div>
+

@@ -1,0 +1,17 @@
+<div class="single-comic" *ngIf="!loading; else loadingBlock">
+  <div class="single-comic">
+    <img [src]='comic.thumbnail' [alt]='comic.title' class="single-comic__img"/>
+    <div class="single-comic__info">
+      <h2 class="single-comic__name">{{comic.title}}</h2>
+      <p class="single-comic__descr">{{comic.description}}</p>
+      <p class="single-comic__descr">{{comic.pageCount}}</p>
+      <p class="single-comic__descr">Language: {{comic.language}}</p>
+      <div class="single-comic__price">{{comic.price}}</div>
+    </div>
+    <div routerLink="/comics" class="single-comic__back">Back to all</div>
+  </div>
+</div>
+
+<ng-template #loadingBlock>
+  <h3>Loading...</h3>
+</ng-template>

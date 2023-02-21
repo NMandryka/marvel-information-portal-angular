@@ -1,0 +1,38 @@
+<div class="randomchar">
+
+  <div class="randomchar__block" *ngIf="!loading; else loadingBlock">
+    <img [src]='hero.thumbnail' alt="Random character" class="randomchar__img"/>
+    <div class="randomchar__info">
+      <p class="randomchar__name">{{hero.name}}</p>
+      <p class="randomchar__descr">{{hero.description || 'This hero has no description' }}</p>
+      <div class="randomchar__btns">
+        <a [href]='hero.homepage' class="button button__main">
+          <div class="inner">homepage</div>
+        </a>
+        <a [href]='hero.wiki' class="button button__secondary">
+          <div class="inner">wiki</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loadingBlock>
+    <h3>Loading...</h3>
+  </ng-template>
+
+  <div class="randomchar__static">
+    <p class="randomchar__title">
+      Random character for today!<br/>
+      Do you want to get to know him better?
+    </p>
+    <p class="randomchar__title">
+      Or choose another one
+    </p>
+    <button (click)="updateHero()" class="button button__main" >
+      <div class="inner">try it</div>
+    </button>
+    <img [src]="'../../../../assets/img/mjolnir.png'" alt="mjolnir" class="randomchar__decoration"/>
+  </div>
+</div>
+
+

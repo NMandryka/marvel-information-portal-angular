@@ -1,0 +1,28 @@
+<div class="char__list">
+  <ul class="char__grid" *ngIf="!onInitLoading; else onInitLoadingBlock">
+    <li
+      *ngFor="let hero of heroesList"
+      class='char__item'
+      tabIndex={0}
+      (click)="heroesService.changeHeroForCharInfo(hero)"
+    >
+      <img [src]='hero.thumbnail' [alt]='hero.name' />
+      <div class="char__name">{{hero.name}}</div>
+    </li>
+  </ul>
+
+  <ng-template #onInitLoadingBlock>
+    <h3>Loading...</h3>
+  </ng-template>
+
+  <div class="loading" *ngIf="loading">
+    Loading...
+  </div>
+  <button
+    class="button button__main button__long"
+    [disabled]="loading"
+    (click)="loadMore()"
+  >
+    <div class="inner">load more</div>
+  </button>
+</div>
